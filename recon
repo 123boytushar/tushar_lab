@@ -1,0 +1,184 @@
+https://github.com/HackShiv/OneDorkForAll/tree/main/dorks/1M_dork
+https://github.com/swisskyrepo/PayloadsAllTheThings
+https://mega.nz/folder/96AhRazA#Qci5-I29JIQobl4btJ7w0g
+http://testfire.net/
+https://mega.nz/folder/96AhRazA#Qci5-I29JIQobl4btJ7w0g
+https://github.com/AngelSecurityTeam/SQLiDumper-AngelSecurityTeam/blob/main/README.md
+https://github.com/mishakorzik/UserFinder (information with username)
+http://whois.domaintools.com
+https://github.com/Zusyaku/Deface-And-Dorking
+
+Internet Archive(Wayback Machine) is the website to see your target website looks like in the very first version and we can extract website links too.
+https://archive.org/
+
+Foot-Printing Methodology
+
+	1. Foot-printing through Search Engine --> Google, Yahoo, Bing etc
+	2. Foot-printing through Advanced google Hacking Techniques -->  Using of Google Dorking methods ex - intitle:, filetype:, inurl:
+1)Directory
+site vulnweb.com intitle:index.of = .com,.edu,.org
+2).Config Files
+site:vulnweb.com ext:xml | ext:conf | ext:cnf | ext:reg❘ ext:inf | ext:rdp | ext:cfg | ext.txt | ext:ora | ext:ini = .com,.edu,.org
+3)Login Page Find
+site:vulnweb.com inurl:login | inurl:signin intitle:Login | intitle: signin | inurl:auth = facebook.com,yahoo.com
+4)Document Exposure
+site:vulnweb.com ext:doc | ext:docx | ext:odtext:pdf | ext:rtf | ext:sxw | ext:psw| ext:ppt | ext:pptx | ext:pps | ext:csv = facebook.com
+5)Github Dorking
+https://github.com/search?q=%22 *.vulnweb.com%22&type=repositories = yahoo.com
+6)Waybackurls
+https://web.archive.org/cdx/search/cdx?url=*.yahoo.com/*&output=text&fl=original&collapse=urlkey = asana.com,hackerone.com
+7)Gist Github
+https://gist.github.com/search?q=*.%22vulnweb.com%22 = yahoo.com
+8)Amazon aws
+site:.s3.amazonaws.com "vulnweb.com" = yahoo.com,facebook.com
+9).php Waybackurl
+https://web.archive.org/cdx/search?url=vulnweb.com/&matchType=domain&collapse=urlkey&outp ut=text&fl=original&filter=urlkey:.*php&limit=100000 = hackerone.com
+10).git folders
+inurl:"/.git "vulnweb.com -github = yahoo.com,facebook.com
+11)find country site
+inurl:.php?id= site:.pk
+https://dorksearch.com/
+https://github.com/Proviesec/google-dorks/blob/main/google-dorks-for-login.txt
+https://www.lopseg.com.br/
+DNS
+https://spdf.gsfc.nasa.gov/pub/
+
+           https://www.exploit-db.com/google-hacking-database - In this website we will get all latest dorks.
+           site: etc https://securitytrails.com/blog/google-hacking-techniques
+	3. Foot-printing through Social Networking platforms --> Facebook, Twitter, Linkedin etc
+	4. Foot-printing through Websites  --> their own sites
+	5. Foot-printing through Email --> whatever email id they are using or provided(ultratools)Hunter.io
+	6. Foot-printing through WHOIS --> you can use tools also or use website   i.e =  HYPERLINK "https://who.is/"https://who.is/
+	7. Foot-printing through DNS  --> getting information about domain by DNSdumpster.com
+	8. Foot-printing through Network  -->  all information about network such as ip address, ports, info about network map.
+	9. Foot-printing through Social Engineering --> getting information from people by manipulating them.
+	10. Foot-Printing through Competitive intelligence --> Competitive intelligence gathering is the process of gathering 
+        information about the competitors from resources such as the Internet.
+	Eg: company website, search engine, internet, online databases, press releases, annual
+	+reports, trade journals
+
+
+Wappalyzer - it’s a extension to show which technology website using.
+
+Builtwith - A advanced website for showing all the technology website use.
+
+Who is - For Domain and website infomation.
+Database Information
+Name of the Registrar etc
+
+Web site or web Application :
+IP Address:   Ping > "ip address"
+	Server Information
+		Dedicated or shared
+		https://www.yougetsignal.com --> reverse IP DOMAIN CHEKUP
+		http://reverseip.domaintools.com/
+                https://viewdns.info/reverseip/
+
+White list and Black List
+- robots.txt
+
+mattw.io = for youtube video information
+angryipscanner
+viewdns.info
+arin whois > for ip pool > asn
+mxtoolbox > asn search and you will get cidr range of ip
+https://www.ipaddressguide.com/ > for ip calculation
+https://bgp.he.net/ > for more information fo asn > domain information as well
+https://www.lopseg.com.br/osint > information gethering
+https://www.whoxy.com/ > domain information
+cidr > asn > url > http 
+osint framewok
+understanding of domain verticle and horizontal
+subdomain take over = subzy
+assetfinder
+https://subdomainfinder.c99.nl/
+subfinder
+httpx
+katana
+waybackurls
+gau
+allurls
+bigbountyrecon
+shodan.io = 
+hunter.how
+https://search.censys.io/
+https://www.zoomeye.hk/
+magicrecon
+https://github.com/robotshell/magicRecon
+amass
+dirsearch 
+feroxbuster
+dirb
+gobuster
+dirbuster
+shortscan github
+urlscan.io
+intelegentx
+whatweb
+testing kit
+https://github.com/aungsanoo-usa/aungrecon(xss,lfi,OpenRedirect,sqli)
+https://github.com/0xKayala/NucleiFuzzer(find vul XSS, SQLi, SSRF, Open-Redirect)
+Grabify Ip Logger - For device and public ip location.
+https://github.com/aandrew-me/tgpt (ai for terminal)
+https://github.com/projectdiscovery/urlfinder
+masscan
+Hakrawler (Simple, fast web crawler designed for easy, quick discovery of endpoints and assets within a web application)
+univarsalsearch bot(telegram)
+https://dnsdumpster.com/
+https://chaos.projectdiscovery.io/ = for bug bounty
+https://johnermac.github.io/c2/sliverbasics/
+https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file
+https://github.com/CyberSecurityUP/OSCE3-Complete-Guide
+
+Some useful websites where we can get list of vulnerabilities -
+
+1 : Exploit-DB
+2 : CVE- details 
+3 : cve.mitre.org
+
+
+#assetfinder domainname | anew assets.txt
+subfinder -dL assets.txt  > subdomain.txt
+cat assets.txt | httpx-toolkit -ports 80,443,8080, 8000, 8888 -threads 200> alive.txt
+python3 Corsy.py -i alive.txt -t 10 --heade
+nuclei -l alive.txt -tags cors
+
+
+=============================================================================================================================================================
+1)client site
+#xss
+#csrf
+#cors
+#click jacking
+#dom-based vulnarability
+#web sockets
+
+2)Server-side topics
+#sql injection
+#path traversal
+#command injection
+#information disclosure
+#broken access control
+#file upload
+#rfi
+#lfi
+#business logic vulnerability
+#server site request forgery
+#xxe
+#race conditions
+#web cache deception
+
+3)Advanced topics
+#api testing
+#no sql injection
+#insecure deserialization
+#web llm attacks
+#graphql api vulnerability
+#server-site template injection
+#web cache poisoning
+#http host header attack
+#http request smuggling
+#Oauth authentication
+#JWT attacks
+#prototype pollution 
+============================================================================================================================================================
