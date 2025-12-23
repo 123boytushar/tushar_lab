@@ -1,0 +1,7 @@
+alias l="ls -l"
+alias list="ls -ltr"
+
+
+grep tu tus.txt
+
+https://www.youtube.com/watch?v=fKcG9jvpziU
